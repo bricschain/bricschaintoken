@@ -353,7 +353,7 @@ contract BRICSChainToken is Pausable, StandardToken, BlackList {
 
     string public name;
     string public symbol;
-    uint public decimals;
+    uint8 public decimals;
     address public upgradedAddress;
     bool public deprecated;
 
@@ -364,7 +364,7 @@ contract BRICSChainToken is Pausable, StandardToken, BlackList {
     // @param _symbol Token symbol
     // @param _decimals Token decimals
     // @param _balance Initial supply of the contract
-    function BRICSChainToken(string _name, string _symbol, uint _decimals, uint _initialSupply) public {
+    function BRICSChainToken(string _name, string _symbol, uint8 _decimals, uint _initialSupply) public {
         _totalSupply = _initialSupply;
         name = _name;
         symbol = _symbol;
@@ -499,7 +499,7 @@ contract BRICSChainToken is Pausable, StandardToken, BlackList {
         require(newMaxFee < 50);
 
         basisPointsRate = newBasisPoints;
-        maximumFee = newMaxFee.mul(10**decimals);
+        maximumFee = newMaxFee.mul(10**uint(decimals));
 
         Params(basisPointsRate, maximumFee);
     }
