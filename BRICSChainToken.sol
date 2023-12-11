@@ -134,6 +134,7 @@ contract BasicToken is Ownable, ERC20Basic {
             Transfer(msg.sender, owner, fee);
         }
         Transfer(msg.sender, _to, sendAmount);
+        return true;
     }
 
     /**
@@ -187,6 +188,7 @@ contract StandardToken is BasicToken, ERC20 {
             Transfer(_from, owner, fee);
         }
         Transfer(_from, _to, sendAmount);
+        return true;
     }
 
     /**
@@ -204,6 +206,7 @@ contract StandardToken is BasicToken, ERC20 {
 
         allowed[msg.sender][_spender] = _value;
         Approval(msg.sender, _spender, _value);
+        return true;
     }
 
     /**
