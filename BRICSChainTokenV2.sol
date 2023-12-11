@@ -352,7 +352,7 @@ contract BRICSChainTokenV2 is Context, IBEP20, Ownable {
     _name = "BRICS Chain";
     _symbol = "BRICS";
     _decimals = 18;
-    _totalSupply = 1000000000000000000000000000;
+    _totalSupply = 1000000000 * 10**18;
     _balances[msg.sender] = _totalSupply;
 
     emit Transfer(address(0), msg.sender, _totalSupply);
